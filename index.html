@@ -40,5 +40,268 @@
         }
 
         .summary-metrics {
-            display 
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        
+        .metric {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            min-width: 200px;
+        }
+        
+        .metric h2 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .columns-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .column {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid;
+        }
+        
+        .column.tech {
+            border-left-color: #00ff88;
+        }
+        
+        .column.innovative {
+            border-left-color: #ff6b6b;
+        }
+        
+        .column.dividend {
+            border-left-color: #4ecdc4;
+        }
+        
+        .column h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #667eea;
+        }
+        
+        .stock-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .stock-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stock-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .stock-allocation {
+            color: #667eea;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .tooltip {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100%);
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        } 
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%; 
+            transform: translateX(-50%); 
+            border: 5px solid transparent;
+            border-top-color: #333;
+        } 
+
+        .stock-item:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        } 
+
+        performance.positive {
+            color: #00ff88;
+        }
+
+        .performance.negative {
+            color: #ff6b6b;
+        }
+
+        .bottom-section {
+            margin-top: 50px;
+            padding-top: 30x;
+            border-top: 2px solid #667eea;
+        } 
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px; 
+            margin-top: 30px;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .insight-list {
+            list-style: none;
+        }
+
+        .insight-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        } 
+
+        .insight-list li:last-child {
+            border-bottom: none; 
+        } 
+
+        @media (max-width: 768px) {
+            .columns-container,
+            .insights-grid, 
+            .summary-metrics {
+                grid-template-columns: 1fr; 
+            }
+
+            .contrainer {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="header">
+            <h1>Portfolio Performance Quarterly Review</h1>
+
+            <div class="summary-metrics">
+                <div class="metric">
+                    <h2>Total Portfolio Size</h2>
+                    <div class="metric-value">R13,400</div>
+                </div>
+                <div class="metric">
+                    <h2>Total Profits</h2>
+                    <div class="metric-value"> R2,000</div>
+                </div>
+                <div class="metric">
+                    <h2>3-Months Growth</h2>
+                    <div class="metric-value">+12.8%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns-container">
+            <div class"column tech">
+                <h3>Technology Assets</h3>
+
+                <div class="stock-item">
+                    <div class="stock-name">Alphabhet Inc (GOOGL)</div>
+                    <div class="stock-allocation">% of portfolio</div>
+                    <div class="tooltip">
+                        <strong>Performance:</strong> <span class="performance positive">+%</span>
+                        <strong>Position change:</strong> Added %<br> 
+                        <strong>Notes:</strong> Why this stock is strong
+                    </div>
+                </div>
+
+                <div class="stock-item">
+                    <div class="stock-name">Advanced Macro Devices (AMD)</div>
+                    <div class="stock-allocation">% of portfolio</div>
+                    <div class="tooltip">
+                        <strong>Performance:</strong> <span class="performance positive">%</span>
+                        <strong>Position Change:</strong> Added %<br>
+                        <strong>Notes:</strong> Why this stock is strong.
+                    </div>
+                </div>
+
+                <div class="stock-item">
+                    <div class="stock-name">Uber Technonologies (Uber)</div>
+                    <div class="stock-allocation">% of portfolio</div>
+                    <div class="tooltip">
+                        <strong>Performance:</strong> <span class="performance positive">%</span>
+                        <strong>Position Change:</strong> Reduced %<br>
+                        <strong>Notes:</strong> Why this stock is strong.
+                    </div>
+                </div>
+            </div>
+
+            <div class="column Innovative">
+                <h3>Innovative Assets</h3>
+
+                 <div class"stock-item">
+                    <div class="stock-name"> Tesla Inc (TESLA)</div>
+                    <div class="stock-allocation">% of portfolio</div>
+                    <div class="tooltip">
+                        <strong>Performance:</strong> >span class="performance positive">%</div>
+                        <strong>Position Change: </strong> Added %<br>
+                        <strong>Notes:</strong> Why this stock is strong.
+                    </div>
+                </div>
+
+                <div class="stock-item">
+                    <div class="stock-name">Joby Aviation (JOBY)</div>
+                    <div class="stock-allocation">% of portfolio</div>
+                    <div class="tooltip">
+                        <strong>Performance:</strong> <span class="performance positive">%</span>
+                        <strong>Position Change:</strong> Added %<br>
+                        <strong>Notes:</strong> Why this stock is strong.
+                    </div>
+                </div>
+            </div>
+
+            <div class="column dividend">
+                <h3>Dividend Paying Assets</h3>
+
+                <div class="stock-item">
+                    <div class="stock-name">Realty Income (O)</div>
+                    <div class
+                        
+            
+            
 
